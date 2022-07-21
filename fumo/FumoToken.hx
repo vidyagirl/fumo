@@ -1,64 +1,58 @@
 package fumo;
 
-typedef Pos = Int;
-
-typedef FumoToken =
-{
-	var type:FumoTokenType;
-	var pos:Pos;
-	var ?value:Any;
-	var lexeme:String;
-}
-
 enum FumoTokenType
 {
-	FEof;
+	// Bracket stuff
+	FLeftParen;
+	FRightParen;
+	FLeftBrace;
+	FRightBrace;
+	FLeftBracket;
+	FRightBracket;
 
+	// Operators
 	FBang;
-	FAnd;
-	FOr;
-	FEqual;
-	FDoubleEquals;
 	FBangEqual;
+	FEqual;
+	FEqualEqual;
 	FGreater;
 	FGreaterEqual;
 	FLess;
 	FLessEqual;
-	FComma;
-	FDot;
-	FStar;
-	FSlash;
 	FPlus;
-	FMinus;
-	FModulo;
-	FIncrement;
-	FDecrement;
 	FPlusEqual;
+	FMinus;
 	FMinusEqual;
+	FStar;
 	FStarEqual;
+	FStarStar;
+	FStarStarEqual;
+	FSlash;
 	FSlashEqual;
+	FModulo;
 	FModuloEqual;
-	FLeftParen; // (
-	FRightParen; // )
-	FLeftBracket; // [
-	FRIghtBracket;
+	FDot;
+	// Types
 	FInt;
 	FFloat;
-	FBool;
 	FString;
+	FBool;
 	FAny;
-	FVoid;
 	FNull;
-	FFunction(name:String, returnType:FumoTokenType, ?params:Array<FumoTokenType>);
-	FVar(name:String, type:FumoTokenType, value:Dynamic);
-	FReturn(type:FumoTokenType);
-	FPrint(s:String);
-}
-
-class FumoTokenTools
-{
-	public static inline function getPos(tk:FumoToken):Pos
-	{
-		return tk.pos;
-	}
+	FVoid;
+	// Statements
+	FIf;
+	FElse;
+	FFor;
+	FWhile;
+	FOr;
+	FAnd;
+	FNot;
+	FBreak;
+	FContinue;
+	// Cool stuff
+	FReturn;
+	FVar;
+	FFunc;
+	FEof;
 }
