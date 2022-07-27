@@ -1,5 +1,15 @@
 package fumo;
 
+typedef Pos = Int;
+
+typedef FumoToken =
+{
+	var type:FumoTokenType;
+	var pos:Pos;
+	var ?value:Any;
+	var lexeme:String;
+}
+
 enum FumoTokenType
 {
 	// Bracket stuff
@@ -11,14 +21,6 @@ enum FumoTokenType
 	FRightBracket;
 
 	// Operators
-	FBang;
-	FBangEqual;
-	FEqual;
-	FEqualEqual;
-	FGreater;
-	FGreaterEqual;
-	FLess;
-	FLessEqual;
 	FPlus;
 	FPlusEqual;
 	FMinus;
@@ -32,6 +34,7 @@ enum FumoTokenType
 	FModulo;
 	FModuloEqual;
 	FDot;
+	FComma;
 	// Types
 	FInt;
 	FFloat;
@@ -47,9 +50,17 @@ enum FumoTokenType
 	FWhile;
 	FOr;
 	FAnd;
-	FNot;
 	FBreak;
 	FContinue;
+	// Statement Check Things
+	FBang;
+	FBangEqual;
+	FEqual;
+	FEqualEqual;
+	FGreater;
+	FGreaterEqual;
+	FLess;
+	FLessEqual;
 	// Cool stuff
 	FReturn;
 	FVar;
